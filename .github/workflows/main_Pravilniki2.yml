@@ -23,14 +23,14 @@ jobs:
       uses: docker/login-action@v2
       with:
         registry: https://mkzcontianer-hkbtaya7fyf7cqgg.azurecr.io/
-        username: ${{ secrets.AzureAppService_ContainerUsername_1ab3692f45e54486a4e5d6a37ff95a65 }}
-        password: ${{ secrets.AzureAppService_ContainerPassword_275edf7b27744b93bc5ceb8d995ac9f3 }}
+        username: ${{ secrets.AzureAppService_ContainerUsername_017b0b18311f4a92b024fa3c16295504 }}
+        password: ${{ secrets.AzureAppService_ContainerPassword_05d8565d6f834cc2b546b483c4050d52 }}
 
     - name: Build and push container image to registry
       uses: docker/build-push-action@v3
       with:
         push: true
-        tags: mkzcontianer-hkbtaya7fyf7cqgg.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_1ab3692f45e54486a4e5d6a37ff95a65 }}/custom-azure-ai-chat-app-image:${{ github.sha }}
+        tags: mkzcontianer-hkbtaya7fyf7cqgg.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_017b0b18311f4a92b024fa3c16295504 }}/custom-azure-ai-chat-app-image:${{ github.sha }}
         file: ./Dockerfile
 
   deploy:
@@ -47,5 +47,5 @@ jobs:
       with:
         app-name: 'Pravilniki2'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_ce14e44906b74887b3fa2f5d232b868b }}
-        images: 'mkzcontianer-hkbtaya7fyf7cqgg.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_1ab3692f45e54486a4e5d6a37ff95a65 }}/custom-azure-ai-chat-app-image:${{ github.sha }}'
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_80533629ed8b499d997bec0c6dfa7548 }}
+        images: 'mkzcontianer-hkbtaya7fyf7cqgg.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_017b0b18311f4a92b024fa3c16295504 }}/custom-azure-ai-chat-app-image:${{ github.sha }}'
